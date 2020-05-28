@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xnpool.gaogtest.mapper.TUserLoginMapper">
+	<resultMap id="BaseResultMap" type="com.xnpool.gaogtest.entity.TUserLogin">
+		<id column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="token" property="token" jdbcType="VARCHAR" />
+		<result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+		<result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		uid,
+		token,
+		expire_time,
+		login_time
+	</sql>
+	<sql id="Example_Where_Clause">
+		<where>
+				<if test="uid != null">
+					uid = #{uid,jdbcType=INTEGER}
+				</if>
+				<if test="token != null and token !=''">
+					and token = #{token,jdbcType=VARCHAR}
+				</if>
+				<if test="expireTime != null">
+					and expire_time = #{expireTime,jdbcType=TIMESTAMP}
+				</if>
+				<if test="loginTime != null">
+					and login_time = #{loginTime,jdbcType=TIMESTAMP}
+				</if>
+    </where>
+	</sql>
+	
+</mapper>
